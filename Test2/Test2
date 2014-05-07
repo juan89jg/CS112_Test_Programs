@@ -1,0 +1,31 @@
+import java.util.Scanner;
+public class Test2 {
+
+	public static void main(String[] args) 
+	{
+		TestDice myDice = new TestDice(3);
+		Scanner input = new Scanner(System.in);
+		int numberofDice;
+		int userGuess;
+		float computerNumber;
+		
+		System.out.println("Please enter the number of Dice you would like to play");
+		numberofDice = input.nextInt();
+		computerNumber = myDice.Throw(numberofDice);
+		System.out.printf("Please Guess value between 1 and %d", numberofDice*6);
+		userGuess = input.nextInt();
+		if((float)userGuess <= (computerNumber+(computerNumber *.10)) && (float)userGuess >=(computerNumber -(computerNumber *.10)))
+		{
+			System.out.printf("Your Guess was close Computer Number is %.1f  and you guessed %d", computerNumber, userGuess);
+			System.out.println("\nYou Win!");
+			
+		}
+		else
+		{
+			System.out.printf("You Guessed wrong Computer Number is %.1f  and you guessed %d", computerNumber, userGuess);
+			System.out.println("\nYou Lose!");
+		}
+
+	}
+
+}
